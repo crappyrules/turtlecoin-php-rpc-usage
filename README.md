@@ -7,7 +7,7 @@
 This repo shows you most of the ways to use this <a href="https://github.com/turtlecoin/turtlecoin-walletd-rpc-php/">library</a>
 But it can also be used to send and receive transactions and the other stuff on all plattforms.
 # Requirements
-Requirements: composer, webserver with php 7.2 and the <a href="https://github.com/turtlecoin/turtlecoin/releases">turtle-service wallet</a>.
+Requirements: composer, webserver with php 7.2 php7.2-mbstring php7.2-gd php-fpm and the <a href="https://github.com/turtlecoin/turtlecoin/releases">turtle-service wallet</a>.
 # Installation
 clone this repository into the /var/www/html(Linux) directory or in the htdocs directory(Windows, Mac);
 The the easiest way to install all librarys for php is running this command: <code>composer require chillerlan/php-qrcode turtlecoin/turtlecoin-walletd-rpc-php</code>
