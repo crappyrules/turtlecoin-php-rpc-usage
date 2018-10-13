@@ -1,5 +1,5 @@
 
-![image](/img/logo.png)
+![image align="center"](/img/logo.png)
 # Info
 This repo shows you most of the ways to use this <a href="https://github.com/turtlecoin/turtlecoin-walletd-rpc-php/">library</a>
 But it can also be used to send and receive transactions and the other stuff on all plattforms.
