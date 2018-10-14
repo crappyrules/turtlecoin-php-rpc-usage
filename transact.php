@@ -79,7 +79,7 @@ $balance = intval($decbal["result"]["availableBalance"]) / 100;
       #Transact confirm response
       $strans = $walletd->sendDelayedTransaction($_GET["send"])->getBody()->getContents();
       $decstrans = json_decode($strans, true);
-      echo "Transaction sent to blockchain: <a target='_blank' href='https://turtle-coin.com/?hash=" . $_GET["send"] . "#blockchain_transaction'>Watch status</a>";
+      echo "Transaction sent to blockchain: <a target='_blank' href='https://turtle.land//?hash=" . $_GET["send"] . "#blockchain_transaction'>Watch status</a>";
 #      $transc = count($_SESSION["thistory"]);
 #      $_SESSION["thistory"][$transc] = $_GET["send"];
       echo '<script>notify("Your transaction was sent to blockchain", "Transaction completed");</script>';

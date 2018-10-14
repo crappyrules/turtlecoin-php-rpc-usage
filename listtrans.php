@@ -60,15 +60,15 @@ $fbi = 1;
         for ($k=0; $k < $cadd; $k++) {
           if ($baddrs[$k] == $decltrans["result"]["items"][$i]["transactions"][0]["transfers"][$j]["address"]) {
             if ($decltrans["result"]["items"][$i]["transactions"][0]["transfers"][$j]["amount"] < 0) {
-              echo "<h3>Outgoing: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
+              echo "<h3>Outgoing: " . "<a target='_blank' href='https://turtle.land//?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
             }
             else {
-              echo "<h3>Incoming: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
+              echo "<h3>Incoming: " . "<a target='_blank' href='https://turtle.land//?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
             }
           }
         }
       }
-      //echo "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transfers"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
+      //echo "<a target='_blank' href='https://turtle.land//?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transfers"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
     }
     if ($pcount == 0) {
       echo "<h3>No transactions found";
