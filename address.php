@@ -24,26 +24,35 @@ $walletd = new Walletd\Client($config);
 $addrs = $walletd->getAddresses()->getBody()->getContents();
 $vkey = $walletd->getViewKey()->getBody()->getContents();
 $bal = $walletd->getBalance()->getBody()->getContents();
+//$seed = $walletd->getMnemonicSeed()->getBody()->getContents();
 
 #Decode
 $decaddrs = json_decode($addrs, true);
 $decvkey = json_decode($vkey, true);
 $decbal = json_decode($bal, true);
+//$mseed = json_decode($seed, true);
 
 #Wallet addresses out of array
 $addresses = $decaddrs["result"]["addresses"];
+//$demonic = $mseed ["result"]["address"];
 $fcount = count($decaddrs["result"]["addresses"]);
 #Balances
 $balance = intval($decbal["result"]["availableBalance"]) / 100;
 ?>
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Transaction</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="TurtleCoinWebWallet">
+    <meta name="author" content="@crappyrules">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>TRTL PHP Wallet </title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/transact.js"></script>
+
   </head>
   <body>
     <div class="container">
@@ -93,6 +102,8 @@ for ($i=0; $i < $fcount; $i++) {
     " <br /> <br>Private spend key: " . $decspendkey["result"]["spendSecretKey"] .
 
     " <br /> <br>Private view key: " . $decvkey["result"]["viewSecretKey"] . "<br> <br /> ";
+
+    //" <br /> <br>Mnemonic Seed: " . $demonic["result"]["address"] . "<br> <br /> ";
     echo "<script>function copy" . $i . "(){var copyText = document.getElementById('copy" . $i . "'); copyText.select(); document.execCommand('Copy'); document.getElementById('btn" . $i . "').innerHTML = 'Copied!'}</script>";
     #Check if a qr code with all keys should be generated
     if (isset($_GET["sbqr"])) {

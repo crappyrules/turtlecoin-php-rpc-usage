@@ -1,6 +1,6 @@
 <?php
 #Load libs
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 #Start session
 session_start();
@@ -28,15 +28,23 @@ $baddrs = array();
 $bcount = intval($decstats["result"]["knownBlockCount"]);
 $fbi = 1;
 ?>
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link rel="stylesheet" href="css/address.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="TurtleCoinWebWallet">
+    <meta name="author" content="@crappyrules">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>TRTL PHP Wallet </title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+
   </head>
   <body>
+    <center>
     <?php
     for ($i=0; $i < $fcount; $i++) {
       array_push($baddrs, $addresses[$i]);
@@ -52,10 +60,10 @@ $fbi = 1;
         for ($k=0; $k < $cadd; $k++) {
           if ($baddrs[$k] == $decltrans["result"]["items"][$i]["transactions"][0]["transfers"][$j]["address"]) {
             if ($decltrans["result"]["items"][$i]["transactions"][0]["transfers"][$j]["amount"] < 0) {
-              echo "Outgoing: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
+              echo "<h3>Outgoing: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
             }
             else {
-              echo "Incoming: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
+              echo "<h3>Incoming: " . "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
             }
           }
         }
@@ -63,7 +71,7 @@ $fbi = 1;
       //echo "<a target='_blank' href='https://turtle-coin.com/?hash=" . $decltrans["result"]["items"][$i]["transactions"][0]["transfers"] . "#blockchain_transaction'>" . $decltrans["result"]["items"][$i]["transactions"][0]["transactionHash"] . "</a><br>";
     }
     if ($pcount == 0) {
-      echo "No transactions found";
+      echo "<h3>No transactions found";
     }
      ?>
   </body>
